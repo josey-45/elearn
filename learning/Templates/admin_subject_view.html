@@ -1,0 +1,91 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>admin Course Details</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'trt.css' %}">
+    <style>
+        .btn{
+              background-color: #4CAF50;
+              color: white;
+              text-align: center;
+              padding: 16px 5px 5px;
+              margin: 8px 0;
+              border: none;
+              cursor: pointer;
+              width: 50%;
+              opacity: 0.9;
+        }
+        .btn1{
+              background-color: #4CAF50;
+              color: white;
+              text-align: center;
+              padding: 16px 5px 5px;
+              margin: 8px 0;
+              border: none;
+              cursor: pointer;
+              width: 8%;
+              opacity: 0.9;
+        }
+        .bttn{
+              background-color: red;
+              text-align:center;
+              color: white;
+              padding: 16px 5px 5px;
+              margin: 8px 0;
+              border: none;
+              cursor: pointer;
+              width: 50%;
+              opacity: 0.9;
+        }
+
+    </style>
+</head>
+<body class= "pic" background="{% static 'trt.jpg' %}">
+<div align="center">
+    <h3><b>ADMIN COURSES VIEW</b></h3>
+        <table border ="2px;" style="text-align=center; width:100%; font weight:bold;">
+            <tr>
+                <th>Subject Name</th>
+                <th>Course name</th>
+                <th>Course brief</th>
+                <th>Duration(seconds)</th>
+                <th>Chapters(nos)</th>
+                <th>Course fees</th>
+                <th>Language</th>
+                </tr>
+                {% for a,b,c,d,e,f,g,h in hh %}
+                <tr>
+                    <td>{{a}}</td>
+                    <td>{{b}}</td>
+                    <td>{{c}}</td>
+                    <td>{{d}}</td>
+                    <td>{{e}}</td>
+                    <td>{{f}}</td>
+                    <td>{{g}}</td>
+                    <td>
+                        <button type="submit" class="btn" name="Edit" onclick="location.href='{% url 'admin_sub_edit' h %}'" >Edit</button>
+                        <button type="submit" class="bttn" name="Delete" onclick="location.href='{% url 'admin_sub_delete' h %}'" >Delete</button>
+                    </td>
+            </tr>
+                {% endfor %}
+        </table>
+
+    <br><br><br>
+
+    <div>
+        <button type="submit" class="btn1" name="Back" onclick="location.href='{% url 'admin_home' %}'" >Back</button>
+
+    </div>
+</div>
+
+<div align="center" style="color:blue;">
+        {% if messages %}
+            {% for msg in messages %}
+                    {{ msg }}
+            {% endfor %}
+        {% endif %}
+</div>
+
+</body>
+</html>

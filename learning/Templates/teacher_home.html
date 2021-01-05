@@ -1,0 +1,50 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'admin.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'msg.css' %}">
+
+        <link rel="stylesheet" type="text/css" href="{% static 'studenthome.css' %}">
+
+</head>
+<body class=" pic" background="{% static 'edu.jpeg' %}">
+<div class="navbar">
+  <div class="dropdown">
+    <!--<button class="dropbtn">update profile<i class="fa fa-caret-down"></i></button>-->
+      <a href="{% url 'tec_update_pro' %}">Update profile</a>
+      <a href="{% url 'tec_chnge_passwrd' %}">Change password</a>
+      <a href="{% url 'tec_stud_prog' %}">Student Progress</a>
+        <div class="dropdown-content">
+            <!--<a href="#">teacher</a>
+            <a href="#">Student</a>-->
+        </div>
+  </div>
+   <div class="dropdown">
+    <button class="dropbtn">Topics<i class="fa fa-caret-down"></i></button>
+    <div class="dropdown-content">
+        <a href="{% url 'tec_courses' %}">Course</a>
+        <a href="{% url 'tec_chapter' %}">Chapter</a>
+        <a href="{% url 'tec_cont' %}">Content</a>
+
+    </div>
+  </div>
+  <a href="{% url 'tec_st_booked' %}">Student booked</a>
+  <a href="{% url 'tec_sh_test' %}">schedule test</a>
+  <a href="{% url 'tec_de_test' %}">delete test</a>
+  <a href="{% url 'tec_exm_result' %}">exam results</a>
+    <a href="{% url 'tec_message' %}">Messages</a>
+    <a href="{% url 'tec_attendence' %}">Attendence</a>
+    <a href="{% url 'logout' %}">Logout</a>
+    </div>
+<div align="center" style="color:blue;">
+        {% if messages %}
+            {% for msg in messages %}
+                    {{ msg }}
+            {% endfor %}
+        {% endif %}
+</div>
+
+</body>
+</html>

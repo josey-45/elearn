@@ -1,0 +1,68 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add blog</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'trt.css' %}">
+</head>
+<body class= "pic" background="{% static 'trt.jpg' %}">
+<div align="center">
+    <h3><b>ADD BLOG</b></h3>
+        <table border ="2px;" style="text-align=center; width:100%; font weight:bold;">
+            <tr>
+                <th>Name</th>
+                <th>Content</th>
+                <th>Photo</th>
+                <th>date</th>
+            </tr>
+                {% for i in dc %}
+                <tr>
+                    <td>
+                        {{i.Name}}
+                    </td>
+                    <td>
+                        {{i.Blog_content}}
+                    </td>
+                    <td>
+                        <img src="/media/{{i.Image}}" style="width:40%;height:40%;">
+                    </td>
+                    <td>
+                    {{i.Date_blog}}
+                    </td>
+                    <td>
+                    {{i.Approval_status}}
+                    </td>
+                <td>
+                    <button class="btn" type="submit" name="Approve" onclick="location.href='{% url 'admin_approve' i.id %}'">Approve</button>
+                    <button class="btn" type="submit" name="Reject" onclick="location.href= '{% url 'admin_reject' i.id %}'">Reject</button>
+                    <button class="btn" type="submit" name="Delete" onclick="location.href='{% url 'admin_delete' i.id %}'">Delete</button>
+
+                </td>
+            </tr>
+                {% endfor %}
+        </table>
+       <!--   <label>Your name</label><br><br>
+                <input type="text" name="nam" required><br><br>
+                <label>Blog content</label><br><br>
+                <textarea rows="4" cols="50" name="c_b" required></textarea><br><br>
+                <label>Upload your photo</label><br><br>
+                <input type="file" size="10" placeholder="Attach your recent photograph" name="photo" required><br><br>
+                <label>Today's date</label><br><br>
+                <input type="date" name="date1" required><br><br>
+                <input type="submit" value="submit">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <input type="reset" value="cancel">
+<div align="center">
+    <button type="submit" onclick="location.href='{% url 'admin_home' %}'" name='mybtn2'>back</button>
+</div>
+</div>-->
+
+<div align="center" style="color:blue;">
+        {% if messages %}
+            {% for msg in messages %}
+                    {{ msg }}
+            {% endfor %}
+        {% endif %}
+</div>
+
+</body>
+</html>

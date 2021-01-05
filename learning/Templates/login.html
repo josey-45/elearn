@@ -1,0 +1,32 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'login.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'login1.css' %}">
+
+</head>
+<body class= "pic" background="{% static 'edu2.jpg' %}">
+<center>
+<form method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    <h1>Login</h1>
+    <div style="color:blue;" align="center">
+        {% if messages %}
+            {% for msg in messages %}
+                    {{ msg }}
+            {% endfor %}
+        {% endif %}
+    </div>
+        <label><b>Username</b></label>
+        <br>
+        <input type="text" placeholder="Enter username" name="username" required width="30%"><br>
+        <label><b>Password</b></label>
+        <br>
+        <input type="password" placeholder="Enter password" name="password" required width="30%"><br>
+        <button type="submit" class="button" >Login</button>&nbsp&nbsp&nbsp&nbsp&nbsp
+</form>
+</center>
+</body>
+</html>

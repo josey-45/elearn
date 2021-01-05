@@ -1,0 +1,48 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student home </title>
+  <link rel="stylesheet" type="text/css" href="{% static 'admin.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'msg.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'studenthome.css' %}">
+
+
+</head>
+<body class=" pic" background="{% static 'stu4.jpg' %}">
+<div class="navbar">
+      <a href="{% url 'stu_booked_courses' %}">Booked courses</a>
+      <a href="{% url 'stu_book_course' %}">Book a course</a>
+      <a href="{% url 'stu_down_cert' %}">Download certificate</a>
+      <a href="{% url 'stu_update_pro' %}">My profile</a>
+      <a href="{% url 'stu_feedback' %}">Feedback</a>
+      <a href="{% url 'stu_change_pwd' %}">Change password</a>
+      <div class="dropdown">
+      <button class="dropbtn">Exam<i class="fa fa-caret-down"></i></button>
+      <div class="dropdown-content">
+        <a href="{% url 'stu_exam_notify' %}">Exam notification</a>
+        <a href="{% url 'stu_start_test' %}">Start test</a>
+        <a href="{% url 'stu_exam_result' %}">Exam result</a>
+      </div>
+      </div>
+      <a href="{% url 'stu_message' %}">Messages</a>
+      <a href="{% url 'logout' %}">Logout</a>
+</div>
+<div style="color:blue;" align="center">
+        {% if messages %}
+            {% for msg in messages %}
+                    {{ msg }}
+            {% endfor %}
+        {% endif %}
+</div>
+
+<div class="head">
+
+    <h1>STUDENT HOME</h1>
+    <p>Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time.</p>
+</div>
+
+
+
+</body>
+</html>

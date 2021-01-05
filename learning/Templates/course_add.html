@@ -1,0 +1,78 @@
+{% load static %}
+<html lang="en">
+<head>
+    <style>
+  input[type=number], select, textarea {
+  width: 30%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+.tdStyle
+{
+background-repeat:no-repeat;
+background-size:cover;
+}
+label
+{ float: center; width: 10em; margin-right: 1em; }
+</style>
+    <meta charset="UTF-8">
+    <title>Teacher Subject add</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'trt.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'sama2.css' %}">
+
+</head>
+<!--style="background-repeat: no-repeat; background-size: 1300px 700px"-->
+<body class="tdStyle"  background="{% static 'trt.jpg' %}">
+
+    <div style="color:blue;" align="center">
+        {% if messages %}
+            {% for msg in messages %}
+                    {{ msg }}
+            {% endfor %}
+        {% endif %}
+    </div>
+
+<form method="post" action="{% url 'course_add' %}">
+{% csrf_token %}
+    <div class="container" align="center">
+        <h1>Teacher Subject Add</h1>
+            <p>Please fill in this form to add your subjects.</p>
+                <hr>
+                <label for="subject_name"><b>Subject Name</b></label><br><br>
+                <input type="text" size="25" placeholder="Enter Subject Name" name="sub_tit" required><br><br>
+
+                <label for="course_name"><b>Course Name</b></label><br><br>
+                <input type="text" size="25" placeholder="Enter Course Name" name="cou_tit" required><br><br>
+
+                <label for="brief"><b>Course Brief</b></label><br><br>
+                <textarea name="c_brief" rows="9" cols="50" placeholder="Brief summary about course, teaching platform, online/offline etc." ></textarea>  <br><br>
+
+                <label for="duration"><b>Course Duration</b></label><br><br>
+                <input type="number" placeholder="Enter Course Duration" name="c_dur" required><br><br>
+
+                <label for="Number of chapters"><b>Number of Chapters</b></label><br><br>
+                <input type="number" placeholder="Enter Number of Chapters" name="n_chapt" required><br><br>
+
+                <label for="fee"><b>Course Fee</b></label><br><br>
+                <input type="number" placeholder="Enter Course Fee" name="c_fee" required><br><br>
+
+                <label for="Language"><b>Language</b></label><br><br>
+                <input type="text" placeholder="Enter Language" name="lang" required><br><br>
+
+            <button type="submit" class="button">Register</button>
+            <button type="reset" class="button">Cancel</button>
+    </div>
+</form>
+         <div align="center">
+            <br>
+            <button type="submit"  class="button" onclick="location.href='{% url 'teacher_home' %}'" name='mybtn2'>Back</button>
+        </div>
+
+
+</body>
+</html>

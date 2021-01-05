@@ -1,0 +1,52 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Payment</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'trt.css' %}">
+    <style>
+          .btn
+            {
+            width:8%;
+            background-color:  #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            align:center;}
+        .bttn
+            {background-color: #FF0000;  color: white;  padding: 12px 20px;  border: none;  border-radius: 4px;  cursor: pointer;  align:center;}
+
+          input[type=text], select, textarea {
+          width: 20%;
+          color: black;
+          padding: 12px;
+          font-size: 20px;
+          font-weight:bold;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          box-sizing: border-box;
+          margin-top: 6px;
+          margin-bottom: 16px;
+          resize: vertical;
+        }
+
+    </style>
+</head>
+<body class= "pic" background="{% static 'edu5.jpg' %}">
+<div align="center">
+<form method="post" style="margin-top:200px;">
+    {% csrf_token %}
+    <h1>BOOK COURSE -PAY NOW</h1>
+        <input type="text" name="pay" value="{{f}}" disabled><br>
+        <input type="submit" class="btn" name="submit" value="Pay Now">&nbsp&nbsp&nbsp&nbsp
+        <input type="reset" class="btn" name="cancel" value="Cancel">
+</form>
+
+</div>
+<div align="center">
+   <button type="submit" class="bttn" onclick="location.href='{% url 'student_home' %}'" name='mybtn2'>Back</button>
+</div>
+</body>
+</html>

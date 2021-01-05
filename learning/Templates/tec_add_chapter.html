@@ -1,0 +1,55 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ADD CHAPTER</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'trt.css' %}">
+    <style>
+    .btn
+            {
+            background-color:  #4CAF50;  color: white;  padding: 12px 20px;  border: none;  border-radius: 4px;  cursor: pointer;  align:center;}
+        .bttn
+            {background-color: #FF0000;  color: white;  padding: 12px 20px;  border: none;  border-radius: 4px;  cursor: pointer;  align:center;}
+
+  input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 20px;
+  font-weight:bold;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+    </style>
+</head>
+<body class= "pic" background="{% static 'trt.jpg' %}" >
+<div align="center" style="margin-top:200px;">
+<form method="post" action="{% url 'tec_add_chapter_c0' %}">
+    {% csrf_token %}
+    <h1>SELECT SUBJECT</h1>
+    <table>
+        <tr>
+            <td>
+                <select name="subj">
+                    <option value="Nil" selected>Select subject</option>
+                    {% for i in kk %}
+                        <option value="{{i}}">{{i}}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+         <tr>
+            <td>
+            </td>
+        </tr>
+    </table>
+                <input type="submit" name="Next" class="btn" value="Submit">
+
+</form>
+<button type="submit" class="btn" onclick="location.href='{% url 'teacher_home' %}'">Home</button>
+</div>
+</body>
+</html>
